@@ -4,15 +4,20 @@
     <meta charset="UTF-8">
     <title>Painel de Contratos</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Varela&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../../style/contracts.css">
 </head>
     <body>
         <main class="page-contracts">
             <header class="page-header">
+
                 <div class="container-header">
                     <h1>Contratos <span>UpMobb</span></h1>
                     <button type="button" id="btn-new-contract">Novo contrato</button>
                 </div>
+                
                 <div class="contracts-filters">
                     <input id="search-input" type="text" placeholder="Buscar contrato">
 
@@ -35,7 +40,9 @@
                     </select>
                 </div>
             </header>
+
             <section id="contracts-content"></section>
+
         </main>
     </body>
     <script type="module" src="../../scripts/contracts/list.js"></script>

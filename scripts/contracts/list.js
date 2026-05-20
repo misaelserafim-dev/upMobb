@@ -39,35 +39,49 @@ function sortContracts(contractsList) {
 
 // atualiza com os filtros e ordenacao
 function updateList() {
-  const clonedContracts = [...contracts];
-  const filtered = filterContracts(clonedContracts);
-  const sorted = sortContracts(filtered);
+  try {
 
-  renderContracts(content, sorted, handleRemoveContract);
+    const clonedContracts = [...contracts];
+    const filtered = filterContracts(clonedContracts);
+    const sorted = sortContracts(filtered);
+
+    renderContracts(content, sorted, handleRemoveContract);
+
+  } catch (error) {
+    renderError(content);
+  }
 }
 
 // carrega a lista
 async function loadContracts() {
   try {
-      renderLoading(content);
-      contracts = await getContracts();
 
-      updateList();
+    // throw new Error("Simulando erro");
+
+    renderLoading(content);
+    contracts = await getContracts();
+
+    updateList();
 
   } catch (error) {
-      renderError(content);
+    renderError(content);
   }
 }
 
 // remove item
 function handleRemoveContract(contractId) {
+  if (!contractId) { return; }
+
+  if (!confirm("Tem certeza que deseja excluir?")) {
+    return;
+  }
+
   contracts = contracts.filter(contract => {
-      return contract.id !== contractId;
+    return contract.id !== contractId;
   });
 
   updateList();
 }
-
 
 searchInput.addEventListener("input",
   updateList
@@ -80,6 +94,5 @@ statusFilter.addEventListener("change",
 sortFilter.addEventListener("change",
   updateList
 );
-
 
 loadContracts();

@@ -18,7 +18,7 @@ export function renderLoading(container) {
   `;
 }
 
-function renderEmpty(container) {
+export function renderEmpty(container) {
   container.innerHTML = `
     <div class="loading-container-status empty">
       Nenhum contrato encontrado.
@@ -26,7 +26,7 @@ function renderEmpty(container) {
   `;
 }
 
-function renderError(container) {
+export function renderError(container) {
   container.innerHTML = `
     <div class="loading-container-status error">
       Erro ao carregar contratos.
@@ -41,7 +41,7 @@ function createContractRow(contract) {
   return `
     <div class="contract-row status-${contract.status}">
       <div class="contract-column">
-        <span class="status-badge">
+        <span class="status-badge status-${contract.status}">
           ${getStatusLabel(contract.status)}
         </span>
       </div>
@@ -101,12 +101,4 @@ export function renderContracts(container, contracts, onRemove) {
   container.innerHTML = `${rows}`;
 
   bindRemoveEvents(onRemove);
-}
-
-function renderEmpty(container) {
-  container.innerHTML = `
-    <div class="empty-state">
-      Nenhum contrato encontrado.
-    </div>
-  `;
 }

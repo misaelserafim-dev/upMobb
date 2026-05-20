@@ -29,13 +29,12 @@ button {
 
 body {
     font-family: 'Varela', sans-serif;
-    background: #e6eef5;
+    background: #e6eaee;
 }
 
 .page-header {
     display: flex;
     flex-direction: column;
-    border-bottom: 1px solid #ebe4e4;
     padding: 40px;
     gap: 10px;
 }
@@ -104,6 +103,11 @@ body {
     padding-right: 36px; 
 }
 
+.page-contracts {
+    width: min(100%, 1440px);
+    margin-inline: auto;
+}
+
 .contracts-filters input[type="text"]:focus,
 .contracts-filters select:focus {
     border-color: #a3b8cc;
@@ -119,4 +123,72 @@ body {
     padding: 8px;
     background-color: #fff;
     color: #333;
+}
+
+#contracts-content {
+    width: calc(100% - 80px);
+    margin-inline: auto;
+    border: 1px solid #ebe4e4;
+    min-height: 100dvh;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.contract-row {
+    width: 100%;
+    max-width: calc(100% / 4 - 15px);
+    background: #fff;
+    border: 1px solid #ebe4e4;
+    border-radius: 4px;
+    padding: 8px;
+    display: flex;
+    gap: 20px;
+    flex-direction: column;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.02);
+    transition: transform 0.2s, box-shadow 0.2s;
+    padding: 16px;
+    height: 420px;
+}
+
+.contract-row:hover {
+    border-color: #a3b8cc;
+    box-shadow: 0 0 0 3px rgba(0, 112, 243, 0.05);
+}
+
+.status-badge {
+    display: inline-block;
+    padding: 5px;
+    border-radius: 0.25rem;
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: #fff;
+    background: cornflowerblue;
+}
+
+.status-badge.status-1 {
+    background: darkred;
+}
+.status-badge.status-2 {
+    background: #b48111;
+}
+.status-badge.status-3 {
+    background: #5cb85c;
+}
+.status-badge.status-4 {
+    background: #484848;
+}
+
+@media screen and (max-width: 991px) {
+    .contract-row {
+        max-width: calc(100% / 2 - 15px);
+    }
+    
+}
+
+@media screen and (max-width: 522px) {
+    .contract-row {
+        max-width: 100%;
+    }
+    
 }
