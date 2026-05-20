@@ -1,3 +1,13 @@
+:root {
+    --primary-color: #004492;  
+    --secondary-color: #073161;
+    --background-color: #e6eaee;
+    --not-sent-color: #d9534f;
+    --awaiting-signature-color: #f0ad4e;
+    --signed-color: #5cb85c;
+    --canceled-color: #484848;
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -29,7 +39,7 @@ button {
 
 
 body {
-    background: #e6eaee;
+    background: var(--background-color);
 }
 
 body, details, summary {
@@ -68,7 +78,7 @@ body, details, summary {
 }
 
 #btn-new-contract {
-    background-color: #004492;
+    background-color: var(--primary-color);
     color: #fff;
     border: none;
     font-weight: 500;
@@ -77,7 +87,7 @@ body, details, summary {
 }
 
 #btn-new-contract:hover {
-    background-color: #073161;
+    background-color: var(--secondary-color);
 }
 
 .contracts-filters {
@@ -117,6 +127,7 @@ body, details, summary {
 .page-contracts {
     width: min(100%, 1440px);
     margin-inline: auto;
+    min-height: 110vh;
 }
 
 .contracts-filters input[type="text"]:focus,
@@ -187,19 +198,19 @@ details.contract-details {
 }
 
 .status-badge.status-1 {
-    background: darkred;
+    background: var(--not-sent-color);
 }
 .status-badge.status-2 {
-    background: #b48111;
+    background: var(--awaiting-signature-color);
 }
 .status-badge.status-3 {
-    background: #5cb85c;
+    background: var(--signed-color);
 }
 .status-badge.status-4 {
-    background: #484848;
+    background: var(--canceled-color);
 }
 
-ul.contract-list {
+ul.contract-list, .preview-text h4  {
     font-size: 14px;
     color: #5d5c5c;
     line-height: 1.4;
@@ -210,7 +221,7 @@ ul.contract-list li {
     margin-bottom: 5px;
 }
 
-ul.contract-list li strong {
+ul.contract-list li strong, .preview-text h4 {
     color: #000;
     display: block;
 }
@@ -243,6 +254,77 @@ summary {
     height: 100%;
     object-fit: contain;
     object-position: center;
+}
+
+button.preview-button {
+    position: absolute;
+    bottom: 14px;
+    right: 14px;
+    width: 120px;
+    font-size: 14px;
+}
+
+button.preview-button:hover {
+    border-color: var(--primary-color);
+    color: var(--primary-color);
+}
+
+.preview-overlay {
+    position: fixed;
+    left: 0;
+    top: 0;
+    background: rgba(0, 0, 0, 0.25);
+    width: 100vw;
+    backdrop-filter: blur(10px);
+    height: 100vh;
+    overflow: auto;
+    padding: 30px;
+    z-index: 1000;
+}
+
+button.close-preview {
+    position: absolute;
+    right: 20px;
+    top: 20px;
+    border: gainsboro;
+    font-size: 39px;
+    color: #9e0909;
+}
+
+.preview-content {
+    position: relative;
+    background: #fff;
+    padding: 40px 30px;
+    width: 100%;
+    margin-inline: auto;
+    max-width: 720px;
+    border: 1px solid #e7e7e7;
+    border-radius: 5px;
+    height: 93dvh;
+    overflow: auto;
+}
+
+.preview-content h2 {
+    margin-bottom: 24px;
+    color: #333;
+}
+
+.preview-content ul li{
+    margin-bottom: 18px;
+}
+
+.preview-content ul li span {
+    background-color: #eef3f7;
+    margin-top: 4px;
+    padding: 8px;
+    display: block;
+}
+
+.preview-text .preview-information {
+    min-height: 240px;
+    background-color: #eef3f7;
+    margin-top: 4px;
+    padding: 15px 20px;
 }
 
 @media screen and (max-width: 1200px) {
