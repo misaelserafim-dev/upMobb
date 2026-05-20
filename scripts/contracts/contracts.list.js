@@ -38,52 +38,71 @@ export function renderError(container) {
 
 // componente card
 function createContractRow(contract) {
+  const {
+    status = "",
+    id = "",
+    createdAt = "",
+    model = "",
+    contractor = "",
+    document = "",
+    email = "",
+    address = "",
+    number = "",
+    district = "",
+    city = "",
+    state = ""
+  } = contract ?? {}; 
+
   return `
-    <div class="contract-row status-${contract.status}">
+    <div class="contract-row status-${status}">
+
+      <button class="remove-button" data-id="${id}">
+        <img src="../../assets/trash.png" alt="Remover contrato">
+      </button>
+      
       <div class="contract-column">
-        <span class="status-badge status-${contract.status}">
-          ${getStatusLabel(contract.status)}
+        <span class="status-badge status-${status}">
+          ${getStatusLabel(status)}
         </span>
       </div>
 
       <ul class="contract-list">
-        <li><strong>Modelo</strong>: ${contract.model}</li>
-        <li><strong>Contratante</strong>: ${contract.contractor}</li>
-        <li><strong>Contratário</strong>: ${contract.document}</li>
-        <li><strong>Endereço</strong>: ${contract.address}, ${contract.number}</li>
+        <li><strong>Criado:</strong> ${createdAt}</li>
+        <li><strong>Modelo:</strong> ${model}</li>
+        <li><strong>Contratante:</strong> ${contractor}</li>
+        <li><strong>Documento:</strong> ${document}</li>
+        <li><strong>Email:</strong> ${email}</li>
       </ul>
+      <details class="contract-details">
+        <summary>Mais detalhes</summary>
+          <ul class="contract-list">
+            <li><strong>Tipo documento:</strong>${contract.documentType}</li>
+            <li><strong>Endereço:</strong> ${address}, ${number}, ${district}, ${city} - ${state}</li>
+            <li><strong>CEP:</strong>${contract.zipCode}</li>
+          </ul>
+      </details>
+      
 
       <div class="contract-column">
         <div class="contract-actions">
-
-          <button type="button">
-            Detalhes
-          </button>
-
           <button type="button">
             Prévia
           </button>
-
-          <button class="remove-button" data-id="${contract.id}">
-            Excluir
-          </button>
-
         </div>
       </div>
-
     </div>
   `;
 }
 
 function bindRemoveEvents(onRemove) {
-  const buttons =
-    document.querySelectorAll(".remove-button");
+  const buttons = document.querySelectorAll(".remove-button");
+
 
   buttons.forEach(button => {
     button.addEventListener("click", () => {
-      const contractId =
-        Number(button.dataset.id);
-
+      const contractId = Number(button.dataset.id);
+      
+      console.log("id contrato", button.dataset.id);
       onRemove(contractId);
     });
   });
