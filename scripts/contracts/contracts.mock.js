@@ -300,7 +300,7 @@ export const contractsMock = [
     createdAt: "2026-05-24",
     paragraphs: [
       "Uso de licenças do sistema UpMobb ERP.",
-      "- 50 acessos simultâneos",
+      "- 50 acessos <strong>concurrentes</strong>",
       "**Garantia de SLA** de 99.9%."
     ]
   }

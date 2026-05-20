@@ -9,17 +9,6 @@ function getStatusLabel(status) {
     return statusMap[status] || "";
 }
 
-function getStatusClass(status) {
-    const classMap = {
-    1: "status-gray",
-    2: "status-yellow",
-    3: "status-green",
-    4: "status-red"
-    };
-
-    return classMap[status] || "";
-}
-
 // fallbacks carregando, erro, vazio
 export function renderLoading(container) {
   container.innerHTML = `
@@ -50,9 +39,9 @@ function renderError(container) {
 // componente card
 function createContractRow(contract) {
   return `
-    <div class="contract-row ${getStatusClass(contract.status)}">
+    <div class="contract-row status-${contract.status}">
       <div class="contract-column">
-        <span class="status-badge ${getStatusClass(contract.status)}">
+        <span class="status-badge">
           ${getStatusLabel(contract.status)}
         </span>
       </div>
@@ -100,11 +89,7 @@ function bindRemoveEvents(onRemove) {
   });
 }
 
-export function renderContracts(
-  container,
-  contracts,
-  onRemove
-) {
+export function renderContracts(container, contracts, onRemove) {
   if (!contracts.length) {
     return renderEmpty(container);
   }
