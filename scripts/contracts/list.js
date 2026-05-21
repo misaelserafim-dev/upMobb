@@ -1,7 +1,7 @@
 import { getContracts } from "./contracts.requests.js";
 import { renderContracts, renderLoading, renderError } from "./contracts.list.js";
 import { openContractForm} from "./contracts.form.js";
-
+import { resetPage } from "./contracts.pagination.js";
 
 let contracts = [];
 
@@ -52,8 +52,10 @@ function sortContracts(contractsList) {
 }
 
 // atualiza com os filtros e ordenacao
-function updateList() {
+function updateList(reset = false) {
   try {
+
+    if (reset) resetPage();
 
     const clonedContracts = [...contracts];
     const filtered = filterContracts(clonedContracts);
@@ -91,7 +93,8 @@ function handleCreateContract(contract) {
   contracts.unshift(newContract);
   updateList();
 }
-// evento modal
+
+// evento modal novo contrato
 openFormButton.onclick = () => {
   openContractForm(
     handleCreateContract
@@ -113,16 +116,8 @@ function handleRemoveContract(contractId) {
   updateList();
 }
 
-searchInput.addEventListener("input",
-  updateList
-);
-
-statusFilter.addEventListener("change",
-  updateList
-);
-
-sortFilter.addEventListener("change",
-  updateList
-);
+searchInput.addEventListener("input", () => updateList(true));
+statusFilter.addEventListener("change", () => updateList(true));
+sortFilter.addEventListener("change", () => updateList(true));
 
 loadContracts();

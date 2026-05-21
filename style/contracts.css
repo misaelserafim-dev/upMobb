@@ -129,7 +129,7 @@ form label {
 textarea {
     width: 100%;
     resize: vertical;
-    min-height: 120px;
+    min-height: 220px;
 }
 
 .form-group input, .form-group select, .form-group textarea {
@@ -221,6 +221,11 @@ details.contract-details {
     font-weight: 600;
     color: #fff;
     background: cornflowerblue;
+}
+
+.loading-container-status.error {
+    color: #b01f1f;
+    text-transform: uppercase;
 }
 
 .status-badge.status-1 {

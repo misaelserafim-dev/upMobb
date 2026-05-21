@@ -13,12 +13,12 @@ export function openContractForm(onSave) {
             <div class="grid-form">
                 <div class="form-group">
                     <label for="form-model">Modelo</label>
-                    <input id="form-model" type="text" name="model" placeholder="Modelo" value="Novo contrato UpMobb">
+                    <input id="form-model" type="text" name="model" placeholder="Modelo">
                 </div>
 
                 <div class="form-group">
                     <label for="form-contractor">Contratante</label>
-                    <input id="form-contractor" type="text" name="contractor" placeholder="Contratante" value="Indústria Global S.A.">
+                    <input id="form-contractor" type="text" name="contractor" placeholder="Contratante">
                 </div>
 
                 <div class="form-group">
@@ -32,47 +32,47 @@ export function openContractForm(onSave) {
 
                 <div class="form-group">
                     <label for="form-document">Documento</label>
-                    <input id="form-document" type="text" name="document" placeholder="Documento" value="56.789.012/0001-88">
+                    <input id="form-document" type="text" name="document" placeholder="Documento">
                 </div>
 
                 <div class="form-group">
                     <label for="form-phone">Telefone</label>
-                    <input id="form-phone" type="text" name="phone" placeholder="(41) 99999-9999" value="(41) 99999-9999">
+                    <input id="form-phone" type="text" name="phone" placeholder="(41) 99999-9999">
                 </div>
 
                 <div class="form-group">
                     <label for="form-email">E-mail</label>
-                    <input id="form-email" type="email" name="email" placeholder="E-mail" value="ti@global.com.br">
+                    <input id="form-email" type="email" name="email" placeholder="E-mail">
                 </div>
 
                 <div class="form-group">
                     <label for="form-zipCode">CEP</label>
-                    <input id="form-zipCode" type="text" name="zipCode" placeholder="CEP" value="83065-150">
+                    <input id="form-zipCode" type="text" name="zipCode" placeholder="CEP">
                 </div>
 
                 <div class="form-group">
                     <label for="form-address">Endereço</label>
-                    <input id="form-address" type="text" name="address" placeholder="Endereço" value="Rua das Palmeiras">
+                    <input id="form-address" type="text" name="address" placeholder="Endereço">
                 </div>
 
                 <div class="form-group">
                     <label for="form-number">Número</label>
-                    <input id="form-number" type="text" name="number" placeholder="Número" value="88">
+                    <input id="form-number" type="text" name="number" placeholder="Número">
                 </div>
 
                 <div class="form-group">
                     <label for="form-district">Bairro</label>
-                    <input id="form-district" type="text" name="district" placeholder="Bairro" value="Industrial">
+                    <input id="form-district" type="text" name="district" placeholder="Bairro">
                 </div>
 
                 <div class="form-group">
                     <label for="form-city">Cidade</label>
-                    <input id="form-city" type="text" name="city" placeholder="Cidade" value="São José dos Pinhais">
+                    <input id="form-city" type="text" name="city" placeholder="Cidade">
                 </div>
 
                 <div class="form-group">
                     <label for="form-state">UF</label>
-                    <input id="form-state" type="text" name="state" placeholder="UF" value="PR">
+                    <input id="form-state" type="text" name="state" placeholder="UF">
                 </div>
             </div>
 

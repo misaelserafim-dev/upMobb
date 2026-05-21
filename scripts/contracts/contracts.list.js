@@ -1,4 +1,5 @@
 import { openPreviewModal } from "./contracts.preview.js";
+import { paginate, renderPagination } from "./contracts.pagination.js";
 
 function getStatusLabel(status) {
   const statusMap = {
@@ -127,12 +128,12 @@ export function renderContracts(container, contracts, onRemove) {
     return renderEmpty(container);
   }
 
-  const rows = contracts.map(contract => {
-    return createContractRow(contract);
-  }).join("");
+  const page = paginate(contracts);  
+  const rows = page.map(createContractRow).join("");
 
-  container.innerHTML = `${rows}`;
+  container.innerHTML = rows;
 
   bindRemoveEvents(onRemove);
-  bindPreviewEvents(contracts);
+  bindPreviewEvents(page);
+  renderPagination(container, contracts.length, () => renderContracts(container, contracts, onRemove));
 }
