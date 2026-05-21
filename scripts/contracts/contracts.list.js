@@ -1,14 +1,14 @@
-import { openPreviewModal } from "./contracts.modal.js";
+import { openPreviewModal } from "./contracts.preview.js";
 
 function getStatusLabel(status) {
-    const statusMap = {
-    1: "Não enviado",
-    2: "Aguardando assinatura",
-    3: "Assinado",
-    4: "Cancelado"
-    };
+  const statusMap = {
+  1: "Não enviado",
+  2: "Aguardando assinatura",
+  3: "Assinado",
+  4: "Cancelado"
+  };
 
-    return statusMap[status] || "";
+  return statusMap[status] || "";
 }
 
 // fallbacks carregando, erro, vazio

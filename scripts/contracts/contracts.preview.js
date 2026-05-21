@@ -1,21 +1,15 @@
 function parseParagraph(paragraph) {
-  if (paragraph.startsWith("-")) {
-    return `
-      <li>
-        ${paragraph.replace("-", "").trim()}
-      </li>
-    `;
-  }
+    
+    if (paragraph.startsWith("-")) {
+        return `<li>${paragraph.replace("-", "").trim()}</li>`;
+    }
 
-  const boldText =
-    paragraph.replace(
+    const boldText = paragraph.replace(
       /\*\*(.*?)\*\*/g,
       "<strong>$1</strong>"
     );
 
-    return `
-        <p>${boldText}</p>
-    `;
+    return `<p>${boldText}</p>`;
 }
 
 export function openPreviewModal(contract) {
@@ -23,9 +17,9 @@ export function openPreviewModal(contract) {
     const paragraphs = contract.paragraphs.map(parseParagraph).join("");
 
     modal.innerHTML = `
-        <div class="preview-overlay">
-            <div class="preview-content">
-                <button class="close-preview">&times;</button>
+        <div class="modal-overlay">
+            <div class="modal-content preview-modal">
+                <button class="close-modal">&times;</button>
 
                 <h2>${contract.model}</h2>
 
@@ -52,8 +46,8 @@ export function openPreviewModal(contract) {
     modal.classList.add("active");
 
     modal.onclick = event => {
-        const closeButton = event.target.closest(".close-preview");
-        const overlay = event.target.closest(".preview-overlay");
+        const closeButton = event.target.closest(".close-modal");
+        const overlay = event.target.closest(".modal-overlay");
 
         if(closeButton || event.target === overlay) {
             closePreviewModal();

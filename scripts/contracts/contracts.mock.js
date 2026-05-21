@@ -13,7 +13,7 @@ export const contractsMock = [
     city: "Curitiba",
     state: "PR",
     status: 3,
-    createdAt: "2026-05-10",
+    createdAt: "2026-05-06", // 2 semanas atrás
     paragraphs: [
       "Contrato de **prestação de serviço**.",
       "- Atendimento mensal",
@@ -35,7 +35,7 @@ export const contractsMock = [
     city: "São José dos Pinhais",
     state: "PR",
     status: 2,
-    createdAt: "2026-05-11",
+    createdAt: "2026-05-07",
     paragraphs: [
       "Contrato comercial entre as partes.",
       "- Entrega em 30 dias",
@@ -56,7 +56,7 @@ export const contractsMock = [
     city: "Curitiba",
     state: "PR",
     status: 1,
-    createdAt: "2026-05-12",
+    createdAt: "2026-05-08",
     paragraphs: [
       "Contrato de locação residencial."
     ]
@@ -75,7 +75,7 @@ export const contractsMock = [
     city: "Curitiba",
     state: "PR",
     status: 4,
-    createdAt: "2026-05-13",
+    createdAt: "2026-05-09",
     paragraphs: [
       "Contrato cancelado pelas partes."
     ]
@@ -94,7 +94,7 @@ export const contractsMock = [
     city: "Curitiba",
     state: "PR",
     status: 3,
-    createdAt: "2026-05-14",
+    createdAt: "2026-05-10",
     paragraphs: [
       "Termo de **confidencialidade**."
     ]
@@ -113,7 +113,7 @@ export const contractsMock = [
     city: "São José dos Pinhais",
     state: "PR",
     status: 2,
-    createdAt: "2026-05-15",
+    createdAt: "2026-05-11",
     paragraphs: [
       "- Participação conjunta",
       "- Divisão de receitas"
@@ -133,7 +133,7 @@ export const contractsMock = [
     city: "Curitiba",
     state: "PR",
     status: 1,
-    createdAt: "2026-05-16",
+    createdAt: "2026-05-12",
     paragraphs: [
       "Contrato para fornecimento contínuo."
     ]
@@ -152,7 +152,7 @@ export const contractsMock = [
     city: "São José dos Pinhais",
     state: "PR",
     status: 3,
-    createdAt: "2026-05-17",
+    createdAt: "2026-05-13",
     paragraphs: [
       "**Contrato válido** até 2027.",
       "- Consultoria",
@@ -173,10 +173,10 @@ export const contractsMock = [
     city: "Curitiba",
     state: "PR",
     status: 2,
-    createdAt: "2026-05-18",
+    createdAt: "2026-05-14",
     paragraphs: [
       "Desenvolvimento de **sistemas customizados**.",
-      "- Alocação de profissionais",
+      "- Alocação de professionals",
       "- Entregas quinzenais"
     ]
   },
@@ -194,7 +194,7 @@ export const contractsMock = [
     city: "São José dos Pinhais",
     state: "PR",
     status: 1,
-    createdAt: "2026-05-19",
+    createdAt: "2026-05-15",
     paragraphs: [
       "Locação de sala comercial para escritório.",
       "- Prazo de 24 meses"
@@ -214,7 +214,7 @@ export const contractsMock = [
     city: "Curitiba",
     state: "PR",
     status: 3,
-    createdAt: "2026-05-20",
+    createdAt: "2026-05-16",
     paragraphs: [
       "Serviços de **design gráfico** e branding.",
       "- Criação de identidade visual",
@@ -235,7 +235,7 @@ export const contractsMock = [
     city: "Curitiba",
     state: "PR",
     status: 4,
-    createdAt: "2026-05-21",
+    createdAt: "2026-05-17", // Ajustado para o passado
     paragraphs: [
       "Gestão de tráfego pago e redes sociais.",
       "Distrato solicitado por quebra de escopo."
@@ -255,7 +255,7 @@ export const contractsMock = [
     city: "São José dos Pinhais",
     state: "PR",
     status: 1,
-    createdAt: "2026-05-22",
+    createdAt: "2026-05-18", // Ajustado para o passado
     paragraphs: [
       "Manutenção de ar-condicionado e equipamentos.",
       "- Visitas trimestrais",
@@ -276,7 +276,7 @@ export const contractsMock = [
     city: "Curitiba",
     state: "PR",
     status: 2,
-    createdAt: "2026-05-23",
+    createdAt: "2026-05-19", // Ontem!
     paragraphs: [
       "Serviços de **assessoria jurídica** preventiva.",
       "- Análise de contratos externos",
@@ -297,7 +297,7 @@ export const contractsMock = [
     city: "São José dos Pinhais",
     state: "PR",
     status: 3,
-    createdAt: "2026-05-24",
+    createdAt: "2026-05-20", // Hoje mais cedo!
     paragraphs: [
       "Uso de licenças do sistema UpMobb ERP.",
       "- 50 acessos <strong>concurrentes</strong>",

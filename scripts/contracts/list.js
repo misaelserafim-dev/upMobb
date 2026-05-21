@@ -1,11 +1,25 @@
 import { getContracts } from "./contracts.requests.js";
 import { renderContracts, renderLoading, renderError } from "./contracts.list.js";
+import { openContractForm} from "./contracts.form.js";
+
 
 let contracts = [];
-const content = document.querySelector("#contracts-content");
+
+const content =  document.querySelector("#contracts-content");
 const searchInput = document.querySelector("#search-input");
 const statusFilter = document.querySelector("#status-filter");
 const sortFilter = document.querySelector("#sort-filter");
+const openFormButton = document.querySelector("#open-contract-form");
+
+if (!content || !searchInput || !statusFilter || !sortFilter || !openFormButton) {
+  document.body.innerHTML = `
+    <div style="display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100vh;">
+      <h2>Ops! Algo deu errado ao carregar a página.</h2>
+      <button onclick="window.location.reload()">Atualizar Página</button>
+    </div>
+  `;
+  throw new Error("Elemento crítico #contracts-content não encontrado.");
+}
 
 // atualiza com o filtro
 function filterContracts(contractsList) {
@@ -67,6 +81,22 @@ async function loadContracts() {
     renderError(content);
   }
 }
+
+// cria novo item
+function handleCreateContract(contract) {
+  const newContract = {
+    ...contract,
+    createdAt: contract.createdAt || new Date().toISOString()
+  };
+  contracts.unshift(newContract);
+  updateList();
+}
+// evento modal
+openFormButton.onclick = () => {
+  openContractForm(
+    handleCreateContract
+  );
+};
 
 // remove item
 function handleRemoveContract(contractId) {
