@@ -1,9 +1,13 @@
 import { contractsMock } from "./contracts.mock.js";
 
-const delay = (time = 1200) => new Promise(resolve => setTimeout(resolve, time));
+const REQUEST_DELAY = 1000;
+
+const awaitMoment = (time = REQUEST_DELAY) => {
+    return new Promise(resolve => setTimeout(resolve, time));
+};
 
 export async function getContracts() {
-    await delay();
+    await awaitMoment();
 
     return [...contractsMock];
 }
