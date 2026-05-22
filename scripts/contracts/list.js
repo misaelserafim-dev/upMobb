@@ -5,11 +5,21 @@ import { resetPage } from "./contracts.pagination.js";
 
 let contracts = [];
 
+const SORT_TYPES = {
+  RECENT: "recent",
+  OLDEST: "oldest"
+};
+
 const content =  document.querySelector("#contracts-content");
 const searchInput = document.querySelector("#search-input");
 const statusFilter = document.querySelector("#status-filter");
 const sortFilter = document.querySelector("#sort-filter");
 const openFormButton = document.querySelector("#open-contract-form");
+
+function init() {
+  eventListeners();
+  loadContracts();
+}
 
 if (!content || !searchInput || !statusFilter || !sortFilter || !openFormButton) {
   document.body.innerHTML = `
@@ -38,16 +48,18 @@ function filterContracts(contractsList) {
 
 // ordenacao
 function sortContracts(contractsList) {
-  return contractsList.sort((a, b) => 
-  {
-    const firstDate = new Date(a.createdAt);
-    const secondDate = new Date(b.createdAt);
+  const sortType = sortFilter.value;
 
-    if (sortFilter.value === "recent") {
-      return secondDate - firstDate;
-    }
+  return [...contractsList].sort((firstContract, secondContract) => {
+    const firstDate = new Date(firstContract.createdAt).getTime();
+    const secondDate = new Date(secondContract.createdAt).getTime();
 
-    return firstDate - secondDate;
+    const sortMap = {
+      [SORT_TYPES.RECENT]: secondDate - firstDate,
+      [SORT_TYPES.OLDEST]: firstDate - secondDate
+    };
+
+    return sortMap[sortType] ?? 0;
   });
 }
 
@@ -116,8 +128,10 @@ function handleRemoveContract(contractId) {
   updateList();
 }
 
-searchInput.addEventListener("input", () => updateList(true));
-statusFilter.addEventListener("change", () => updateList(true));
-sortFilter.addEventListener("change", () => updateList(true));
+function eventListeners() {
+  searchInput.addEventListener("input", () => updateList(true));
+  statusFilter.addEventListener("change", () => updateList(true));
+  sortFilter.addEventListener("change", () => updateList(true));
+}
 
-loadContracts();
+init();
